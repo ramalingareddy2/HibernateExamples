@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mtm.entities">
+	<class name="DTHPackage" table="dth_packages">
+		<id name="dthPackageNo" column="dth_package_no">
+			<generator class="increment"></generator>
+		</id>
+		<property name="packageName" column="package_nm"/>
+		<property name="region"/>
+		<property name="monthlyCharges" column="monthly_chrgs"/>
+		<property name="activationCode" column="activation_code"/>
+		<set name="channels">
+			<key column="dth_package_no"/>
+			<many-to-many class="Channel" column="channel_no" fetch="join" />
+		</set>
+	</class>
+</hibernate-mapping>

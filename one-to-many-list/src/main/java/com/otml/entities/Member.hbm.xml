@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otml.entities">
+	<class name="Member" table="tbl_member">
+		<id name="memberId" column="member_id">
+			<generator class="increment"/>
+		</id>
+		<property name="memberName" column="member_nm"/>
+		<property name="projectName" column="project_nm"/>
+		<property name="description" column="description"/>
+		<property name="role"/>
+		<property name="startDate" column="start_dt"/>
+		<property name="experience"/>
+		<list name="assignedTasks" fetch="join">
+			<key column="member_id"/>
+			<list-index column="task_order" base="1"/>
+			<one-to-many class="Task"/>
+		</list>
+	</class>
+</hibernate-mapping>

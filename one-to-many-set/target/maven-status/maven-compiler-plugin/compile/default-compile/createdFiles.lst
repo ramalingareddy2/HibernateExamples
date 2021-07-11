@@ -1,0 +1,6 @@
+com\otms\dao\ProductDao.class
+com\otms\helper\SessionFactoryRegistry.class
+com\otms\entities\Product.class
+com\otms\test\Test.class
+com\otms\entities\Review$ReviewBuilder.class
+com\otms\entities\Review.class

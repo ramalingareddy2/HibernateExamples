@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.otmb.entities">
+	<class name="Store" table="store">
+		<id name="storeNo" column="store_no">
+			<generator class="increment"/>
+		</id>
+		<property name="storeName" column="store_nm"/>
+		<property name="ownerName" column="owner_nm"/>
+		<property name="contactNo" column="contact_no"/>
+		<property name="emailAddress" column="email_addr"/>
+		<set name="staff" inverse="true">
+			<key column="store_no" not-null="true"/>
+			<one-to-many  class="Staff"/>
+		</set>
+	</class>
+</hibernate-mapping>
